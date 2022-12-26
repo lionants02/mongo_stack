@@ -1,0 +1,20 @@
+# docker stack deploy -c ./mongo-stack.yml mongo
+version: "3.4"
+
+services:
+  mongo:
+    image: "mongo:6.0.3"
+    restart: always
+    ports:
+      - 23218:27017
+    volumes:
+      - "./data:/data/db:rw"
+    environment:
+      MONGO_INITDB_ROOT_PASSWORD: changemelLANSAHCtoC6xTujpjl1udubv9b7LNybL3dQ
+      MONGO_INITDB_ROOT_USERNAME: mongoadminchangeme
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 1024M
+    
